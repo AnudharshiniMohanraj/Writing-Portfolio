@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anudharshini M | Content Writer & Storyteller</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --sand-bg: #EFE7D8;
+  --sand-deep: #E3D8C2;
+  --sand-line: #C9BC9E;
+  --cream: #F7F3E9;
+  --charcoal: #2B2A26;
+  --charcoal-soft: #56514A;
+  --charcoal-faint: #8C8577;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--sand-bg);
+  color:var(--charcoal-soft);
+  font-family:'Inter', sans-serif;
+  font-weight:400;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+  font-family:'Fraunces', serif;
+  color:var(--charcoal);
+  font-weight:500;
+  line-height:1.15;
+  letter-spacing:-0.01em;
+}
+
+a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; cursor:pointer; }
+img{ max-width:100%; display:block; }
+
+.wrap{ max-width:1180px; margin:0 auto; padding:0 40px; }
+
+.eyebrow{
+  font-family:'Inter',sans-serif;
+  font-size:12px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--charcoal-faint);
+  font-weight:500;
+}
+
+.section{ padding:120px 0; position:relative; scroll-margin-top:84px; }
+.hero{ scroll-margin-top:0; }
+.contact{ scroll-margin-top:84px; }
+.section-alt{ background:var(--sand-deep); }
+
+.divider{
+  width:48px; height:2px; background:var(--charcoal);
+  margin:22px 0 34px;
+}
+
+/* -------- reveal on scroll -------- */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity 0.9s cubic-bezier(.16,.8,.24,1), transform 0.9s cubic-bezier(.16,.8,.24,1);
+}
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+.reveal-left{ opacity:0; transform:translateX(-52px); transition:opacity 1s cubic-bezier(.16,.8,.24,1), transform 1s cubic-bezier(.16,.8,.24,1); }
+.reveal-left.in{ opacity:1; transform:translateX(0); }
+
+.reveal-right{ opacity:0; transform:translateX(52px); transition:opacity 1s cubic-bezier(.16,.8,.24,1), transform 1s cubic-bezier(.16,.8,.24,1); }
+.reveal-right.in{ opacity:1; transform:translateX(0); }
+
+/* -------- nav -------- */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(239,231,216,0.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s ease;
+}
+header.scrolled{ border-bottom-color:var(--sand-line); }
+.nav-inner{
+  max-width:1280px; margin:0 auto; padding:18px 40px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:24px;
+}
+.logo{
+  font-family:'Fraunces', serif;
+  font-size:18px; font-weight:500; color:var(--charcoal);
+  letter-spacing:0.01em; white-space:nowrap;
+}
+.nav-links{ display:flex; align-items:center; gap:22px; list-style:none; flex-wrap:nowrap; }
+.nav-links a{
+  font-size:12px; letter-spacing:0.05em; text-transform:uppercase;
+  color:var(--charcoal-soft); font-weight:500;
+  position:relative; padding-bottom:4px; white-space:nowrap;
+  transition:color .25s ease;
+}
+.nav-links a::after{
+  content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
+  background:var(--charcoal); transition:width .3s ease;
+}
+.nav-links a:hover::after{ width:100%; }
+.nav-links a.active{ color:var(--charcoal); }
+.nav-links a.active::after{ width:100%; }
+
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+  width:34px; height:34px;
+  background:transparent; border:none; padding:0;
+  z-index:110;
+}
+.nav-toggle span{
+  display:block; width:24px; height:1px; background:var(--charcoal);
+  transition:transform .3s ease, opacity .3s ease;
+}
+.nav-toggle.active span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2){ opacity:0; }
+.nav-toggle.active span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+/* -------- hero -------- */
+.hero{
+  min-height:100vh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:160px 0 100px;
+  position:relative;
+}
+.hero-inner{ max-width:1180px; margin:0 auto; padding:0 40px; width:100%; }
+.hero .eyebrow{ opacity:0; animation:fadeUp .9s ease .1s forwards; }
+.hero h1{
+  font-size:clamp(52px, 8.4vw, 118px);
+  margin:18px 0 4px;
+  opacity:0; animation:fadeUp 1s ease .25s forwards;
+}
+.hero .title-line{
+  font-size:clamp(17px, 2vw, 22px);
+  font-family:'Fraunces', serif; font-style:italic; font-weight:400;
+  color:var(--charcoal-soft);
+  margin-bottom:30px;
+  opacity:0; animation:fadeUp 1s ease .45s forwards;
+}
+.hero p.intro{
+  max-width:560px; font-size:16.5px; color:var(--charcoal-soft);
+  margin-bottom:44px;
+  opacity:0; animation:fadeUp 1s ease .6s forwards;
+}
+.hero-ctas{ display:flex; gap:18px; flex-wrap:wrap; opacity:0; animation:fadeUp 1s ease .75s forwards; }
+
+@keyframes fadeUp{
+  from{ opacity:0; transform:translateY(24px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:15px 30px;
+  font-size:13px; letter-spacing:0.08em; text-transform:uppercase; font-weight:500;
+  border-radius:2px; transition:all .3s ease;
+  border:1px solid var(--charcoal);
+}
+.btn-solid{ background:var(--charcoal); color:var(--sand-bg); }
+.btn-solid:hover{ background:transparent; color:var(--charcoal); }
+.btn-outline{ background:transparent; color:var(--charcoal); }
+.btn-outline:hover{ background:var(--charcoal); color:var(--sand-bg); }
+
+.hero-mark{
+  position:absolute; right:40px; top:50%; transform:translateY(-50%);
+  writing-mode:vertical-rl; font-size:12px; letter-spacing:0.3em;
+  color:var(--charcoal-faint); text-transform:uppercase;
+  display:flex; align-items:center; gap:14px;
+}
+.hero-mark::after{ content:''; width:1px; height:70px; background:var(--sand-line); }
+
+/* -------- section headers -------- */
+.sec-head{ max-width:640px; margin-bottom:56px; }
+.sec-head h2{ font-size:clamp(32px,4vw,46px); margin-top:14px; }
+.sec-head p{ margin-top:16px; font-size:16px; color:var(--charcoal-soft); }
+
+/* -------- about -------- */
+.about-grid{
+  display:grid; grid-template-columns:1.1fr 0.9fr; gap:80px; align-items:start;
+}
+.about-grid p{ font-size:16.5px; margin-bottom:18px; }
+.about-side{
+  border-left:1px solid var(--sand-line); padding-left:36px;
+}
+.stat-block{ margin-bottom:32px; }
+.stat-block .num{ font-family:'Fraunces',serif; font-size:38px; color:var(--charcoal); }
+.stat-block .lbl{ font-size:12.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--charcoal-faint); margin-top:4px; }
+
+/* -------- skills -------- */
+.skills-grid{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:1px;
+  background:var(--sand-line); border:1px solid var(--sand-line);
+}
+.skill-card{
+  background:var(--sand-bg); padding:44px 40px;
+  transition:background .35s ease;
+}
+.skill-card:hover{ background:var(--cream); }
+.skill-card .idx{ font-size:12px; color:var(--charcoal-faint); letter-spacing:0.1em; }
+.skill-card h3{ font-size:22px; margin:14px 0 20px; }
+.skill-list{ list-style:none; }
+.skill-list li{
+  font-size:15px; padding:10px 0; border-top:1px solid var(--sand-line);
+  display:flex; justify-content:space-between; align-items:center;
+}
+.skill-list li:first-child{ border-top:none; }
+
+/* -------- writing filter -------- */
+.filter-bar{
+  display:flex; gap:8px; flex-wrap:wrap; margin-bottom:70px;
+}
+.filter-btn{
+  background:transparent; border:1px solid var(--sand-line);
+  color:var(--charcoal-soft); padding:10px 22px; font-size:12.5px;
+  letter-spacing:0.08em; text-transform:uppercase; border-radius:20px;
+  transition:all .25s ease;
+}
+.filter-btn:hover{ border-color:var(--charcoal); }
+.filter-btn.active{ background:var(--charcoal); color:var(--sand-bg); border-color:var(--charcoal); }
+
+/* -------- writing zig-zag -------- */
+.timeline{ position:relative; }
+.timeline::before{
+  content:''; position:absolute; left:50%; top:0; bottom:0; width:1px;
+  background:var(--sand-line); transform:translateX(-50%);
+}
+.sample-row{
+  display:grid; grid-template-columns:1fr 1fr; align-items:center;
+  position:relative; margin-bottom:90px;
+  transition:opacity .4s ease, max-height .4s ease;
+}
+.sample-row.hidden{ display:none; }
+.sample-row .dot{
+  position:absolute; left:50%; top:38px; width:9px; height:9px; border-radius:50%;
+  background:var(--sand-bg); border:2px solid var(--charcoal); transform:translateX(-50%);
+  z-index:2;
+}
+.sample-card{
+  background:var(--cream); border:1px solid var(--charcoal);
+  padding:38px 40px; position:relative;
+  box-shadow:0 1px 0 rgba(43,42,38,0.04);
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.sample-card:hover{ transform:translateY(-5px); box-shadow:0 18px 34px -18px rgba(43,42,38,0.35); }
+.sample-row.left .sample-card{ grid-column:1; margin-right:64px; }
+.sample-row.left .spacer{ grid-column:2; }
+.sample-row.right .sample-card{ grid-column:2; margin-left:64px; }
+.sample-row.right .spacer{ grid-column:1; }
+
+.sample-idx{
+  font-family:'Fraunces',serif; font-style:italic; font-size:13px;
+  color:var(--charcoal-faint); margin-bottom:10px; display:block;
+}
+.sample-card h3{ font-size:23px; margin-bottom:10px; }
+.sample-meta{
+  display:flex; gap:14px; flex-wrap:wrap; margin-bottom:16px;
+}
+.tag{
+  font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--charcoal); border:1px solid var(--sand-line);
+  padding:4px 10px; border-radius:20px; background:var(--sand-bg);
+}
+.sample-desc{ font-size:14.5px; color:var(--charcoal-soft); margin-bottom:20px; }
+.sample-link{
+  font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase;
+  font-weight:500; border-bottom:1px solid var(--charcoal); padding-bottom:2px;
+}
+
+/* -------- featured -------- */
+.featured-card{
+  background:var(--charcoal); color:var(--sand-bg);
+  padding:74px 64px; position:relative; overflow:hidden;
+}
+.featured-card .eyebrow{ color:#B8AF9C; }
+.featured-card h2{ color:var(--sand-bg); font-size:clamp(30px,4.4vw,50px); margin:18px 0 22px; max-width:720px; }
+.featured-card .sample-meta .tag{ background:transparent; border-color:#6B655A; color:#D9D1BF; }
+.featured-card p{ max-width:640px; color:#D9D1BF; font-size:16px; margin-bottom:30px; }
+.featured-card .btn{ border-color:var(--sand-bg); color:var(--sand-bg); }
+.featured-card .btn:hover{ background:var(--sand-bg); color:var(--charcoal); }
+.featured-quote{
+  position:absolute; right:-30px; top:-40px; font-family:'Fraunces',serif;
+  font-size:220px; color:rgba(247,243,233,0.05); font-style:italic; line-height:1;
+}
+
+/* -------- technical -------- */
+.tech-grid{ display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+.flow{ display:flex; align-items:center; gap:0; flex-wrap:wrap; margin-top:30px; }
+.flow-step{
+  background:var(--cream); border:1px solid var(--sand-line); padding:16px 22px;
+  font-size:13.5px; color:var(--charcoal); border-radius:2px;
+}
+.flow-arrow{ color:var(--charcoal-faint); padding:0 14px; font-size:16px; }
+.stack-list{ display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+.stack-list span{
+  font-size:12.5px; border:1px solid var(--sand-line); padding:7px 14px;
+  border-radius:20px; color:var(--charcoal-soft);
+}
+
+/* -------- projects -------- */
+.project-card{
+  background:var(--sand-bg); border:1px solid var(--charcoal);
+  padding:46px; transition:transform .35s ease, box-shadow .35s ease;
+}
+.project-card:hover{ transform:translateY(-6px); box-shadow:0 20px 36px -20px rgba(43,42,38,0.3); }
+.project-card h3{ font-size:26px; margin-bottom:14px; }
+.project-card p{ font-size:15.5px; margin-bottom:18px; }
+.project-meta-row{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; margin-top:26px; padding-top:26px; border-top:1px solid var(--sand-line); }
+.project-meta-row .lbl{ font-size:11.5px; letter-spacing:0.07em; text-transform:uppercase; color:var(--charcoal-faint); margin-bottom:6px; }
+.project-meta-row .val{ font-size:14.5px; color:var(--charcoal); }
+
+/* -------- education -------- */
+.edu-item{
+  display:grid; grid-template-columns:140px 1fr; gap:40px;
+  padding:34px 0; border-top:1px solid var(--sand-line);
+}
+.edu-item:last-child{ border-bottom:1px solid var(--sand-line); }
+.edu-year{ font-family:'Fraunces',serif; font-style:italic; color:var(--charcoal-faint); font-size:15px; }
+.edu-body h3{ font-size:21px; margin-bottom:6px; }
+.edu-body .school{ font-size:14.5px; color:var(--charcoal-faint); margin-bottom:6px; }
+.edu-body .score{ font-size:13.5px; color:var(--charcoal-soft); }
+
+/* -------- certifications -------- */
+.cert-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+.cert-list{ list-style:none; }
+.cert-list li{
+  padding:18px 0; border-top:1px solid var(--sand-line); font-size:15px; color:var(--charcoal);
+  display:flex; gap:14px;
+}
+.cert-list li:last-child{ border-bottom:1px solid var(--sand-line); }
+.cert-list li::before{ content:'•'; color:var(--charcoal-faint); flex-shrink:0; }
+
+/* -------- contact -------- */
+.contact{
+  text-align:center; padding:150px 0;
+}
+.contact h2{ font-size:clamp(34px,6vw,74px); max-width:900px; margin:20px auto 40px; }
+.contact-links{ display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-top:10px; }
+footer{
+  text-align:center; padding:34px 0; font-size:12.5px; color:var(--charcoal-faint);
+  border-top:1px solid var(--sand-line);
+}
+
+/* -------- responsive -------- */
+@media (max-width:1120px){
+  .nav-toggle{ display:flex; }
+  .nav-links{
+    position:fixed; top:0; right:0; height:100vh; width:min(78vw, 320px);
+    background:var(--sand-bg); border-left:1px solid var(--sand-line);
+    flex-direction:column; align-items:flex-start; justify-content:center;
+    gap:28px; padding:0 44px;
+    transform:translateX(100%); transition:transform .38s cubic-bezier(.16,.8,.24,1);
+    z-index:105;
+  }
+  .nav-links.open{ transform:translateX(0); }
+  .nav-links a{ font-size:15px; }
+  .nav-overlay{
+    display:none; position:fixed; inset:0; background:rgba(43,42,38,0.28);
+    z-index:104; opacity:0; transition:opacity .3s ease;
+  }
+  .nav-overlay.open{ display:block; opacity:1; }
+}
+@media (max-width:900px){
+  .about-grid{ grid-template-columns:1fr; gap:50px; }
+  .about-side{ border-left:none; border-top:1px solid var(--sand-line); padding-left:0; padding-top:30px; }
+  .skills-grid{ grid-template-columns:1fr; }
+  .tech-grid{ grid-template-columns:1fr; gap:40px; }
+  .cert-grid{ grid-template-columns:1fr; gap:10px; }
+  .timeline::before{ left:20px; }
+  .sample-row{ grid-template-columns:1fr; margin-bottom:56px; }
+  .sample-row .dot{ left:20px; top:0; }
+  .sample-row.left .sample-card, .sample-row.right .sample-card{
+    grid-column:1; margin-left:52px; margin-right:0;
+  }
+  .sample-row .spacer{ display:none; }
+  .featured-card{ padding:50px 30px; }
+  .hero-mark{ display:none; }
+  .edu-item{ grid-template-columns:1fr; gap:8px; }
+}
+@media (max-width:600px){
+  .wrap, .hero-inner{ padding:0 20px; }
+  .section{ padding:72px 0; }
+  .hero{ padding:130px 0 60px; min-height:auto; }
+  .btn{ padding:14px 22px; font-size:11.5px; }
+  .hero-ctas, .contact-links{ flex-direction:column; align-items:flex-start; width:100%; }
+  .contact-links{ align-items:center; }
+  .btn{ width:100%; justify-content:center; text-align:center; }
+  .contact .btn{ width:100%; max-width:320px; }
+  .sample-card{ padding:28px 24px; }
+  .sample-row.left .sample-card, .sample-row.right .sample-card{ margin-left:40px; }
+  .timeline::before{ left:16px; }
+  .sample-row .dot{ left:16px; }
+  .skill-card{ padding:32px 26px; }
+  .project-card{ padding:32px 24px; }
+  .featured-card{ padding:40px 22px; }
+  .featured-card h2{ font-size:clamp(26px, 8vw, 34px); }
+  .filter-bar{ gap:8px; }
+  .filter-btn{ padding:8px 16px; font-size:11px; }
+  .stat-block .num{ font-size:32px; }
+  .edu-year{ font-size:13px; }
+  .cert-grid{ gap:6px; }
+  .nav-inner{ padding:16px 20px; }
+}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="nav-inner">
+    <a href="#home" class="logo">Anudharshini M</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" data-nav="home">Home</a></li>
+      <li><a href="#about" data-nav="about">About</a></li>
+      <li><a href="#skills" data-nav="skills">Skills</a></li>
+      <li><a href="#writing" data-nav="writing">Writing</a></li>
+      <li><a href="#technical" data-nav="technical">Technical Writing</a></li>
+      <li><a href="#projects" data-nav="projects">Projects</a></li>
+      <li><a href="#education" data-nav="education">Education</a></li>
+      <li><a href="#contact" data-nav="contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="eyebrow">Content &amp; Copy Portfolio</div>
+    <h1>Anudharshini&nbsp;M</h1>
+    <div class="title-line">Content Writer · Technical Writer · Storyteller</div>
+    <p class="intro">Enthusiastic and creative content writer with strong writing skills and an interest in short‑form and long‑form video content, aiming to produce clear, engaging, personality‑driven scripts that support brand growth.</p>
+    <div class="hero-ctas">
+      <a href="#writing" class="btn btn-solid">View My Work</a>
+      <a href="#contact" class="btn btn-outline">Contact Me</a>
+    </div>
+  </div>
+  <div class="hero-mark">Erode, Tamil Nadu</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="eyebrow">01. About</div>
+        <h2 style="font-size:clamp(28px,3.6vw,40px); margin:14px 0 26px;">Where an engineer's logic meets a writer's instinct.</h2>
+        <p>I'm a Computer Science Engineering graduate (B.E., 2025) with a strong interest in both content and technical writing. My technical background helps me understand complex concepts, while my passion for writing allows me to transform those ideas into clear, structured, and engaging content.</p>
+        <p>I enjoy researching, simplifying technical information, and creating content that is easy for readers to understand, whether that means explaining how something works or telling a story that sticks. Alongside technical writing, I explore blog writing, storytelling, social media content, and other forms of digital writing.</p>
+        <p>It's this combination, technical knowledge paired with a genuine ear for tone, that lets me write content that stays accurate without ever feeling difficult to read.</p>
+      </div>
+      <div class="about-side reveal">
+        <div class="stat-block">
+          <div class="num">8.56</div>
+          <div class="lbl">CGPA, B.E. Computer Science &amp; Engineering</div>
+        </div>
+        <div class="stat-block">
+          <div class="num">2025</div>
+          <div class="lbl">Graduate, Shree Venkateshwara Hi-Tech Engineering College</div>
+        </div>
+        <div class="stat-block">
+          <div class="num">1st</div>
+          <div class="lbl">Prize, Poetry &amp; Speech Competitions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section section-alt" id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">02. Skills</div>
+      <h2>What I bring to the page.</h2>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-card">
+        <div class="idx">A</div>
+        <h3>Writing &amp; Content</h3>
+        <ul class="skill-list">
+          <li>Humorous, high‑energy, friendly tone</li>
+          <li>Storytelling &amp; narrative structure</li>
+          <li>Converting complex topics into simple, engaging scripts</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="idx">B</div>
+        <h3>SEO &amp; Research</h3>
+        <ul class="skill-list">
+          <li>SEO basics</li>
+          <li>Content structuring</li>
+          <li>Topic research &amp; idea development</li>
+          <li>Engaging copy</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="idx">C</div>
+        <h3>Technical Skills</h3>
+        <ul class="skill-list">
+          <li>Python</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>SQL</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="idx">D</div>
+        <h3>Tools</h3>
+        <ul class="skill-list">
+          <li>Canva</li>
+          <li>Grammarly</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WRITING SAMPLES -->
+<section class="section" id="writing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">03. Writing Samples</div>
+      <h2>A working record, not a highlight reel.</h2>
+      <p>Four pieces, four registers: long‑form storytelling, LinkedIn, campaign copy, and Twitter/X. Filter by category or scroll through all of it.</p>
+    </div>
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="blog">Blogs</button>
+      <button class="filter-btn" data-filter="caption">Captions</button>
+      <button class="filter-btn" data-filter="linkedin">LinkedIn</button>
+      <button class="filter-btn" data-filter="twitter">Twitter/X</button>
+    </div>
+
+    <div class="timeline">
+
+      <!-- SAMPLE 1 - LEFT -->
+      <div class="sample-row left" data-category="blog">
+        <div class="sample-card reveal-left">
+          <span class="sample-idx">No. 01</span>
+          <div class="sample-meta">
+            <span class="tag">Blog / Article</span>
+          </div>
+          <h3>Why Brands Feel Like People</h3>
+          <p class="sample-desc">A long‑form piece on brand storytelling: why we remember advertisements that feel personal, and how the best brands sell a feeling before they sell a product.</p>
+          <a class="sample-link" href="#sample-blog">Read Sample →</a>
+        </div>
+        <div class="spacer"></div>
+        <div class="dot"></div>
+      </div>
+
+      <!-- SAMPLE 2 - RIGHT -->
+      <div class="sample-row right" data-category="linkedin">
+        <div class="spacer"></div>
+        <div class="sample-card reveal-right">
+          <span class="sample-idx">No. 02</span>
+          <div class="sample-meta">
+            <span class="tag">LinkedIn</span>
+            <span class="tag">Rewrite</span>
+          </div>
+          <h3>Product Launch: LinkedIn Rewrite</h3>
+          <p class="sample-desc">A rewritten LinkedIn announcement post, reframing a product launch around the team's effort behind it rather than the launch itself.</p>
+          <a class="sample-link" href="#sample-linkedin">Read Sample →</a>
+        </div>
+        <div class="dot"></div>
+      </div>
+
+      <!-- SAMPLE 3 - LEFT -->
+      <div class="sample-row left" data-category="caption">
+        <div class="sample-card reveal-left">
+          <span class="sample-idx">No. 03</span>
+          <div class="sample-meta">
+            <span class="tag">Social Caption</span>
+            <span class="tag">Kurkure × Stranger Things</span>
+          </div>
+          <h3>Flavour Meets Fandom</h3>
+          <p class="sample-desc">A brand collaboration caption pairing Kurkure flavours with the emotional beats of Stranger Things Season 5, Volume 3.</p>
+          <a class="sample-link" href="#sample-caption">Read Sample →</a>
+        </div>
+        <div class="spacer"></div>
+        <div class="dot"></div>
+      </div>
+
+      <!-- SAMPLE 4 - RIGHT -->
+      <div class="sample-row right" data-category="twitter">
+        <div class="spacer"></div>
+        <div class="sample-card reveal-right">
+          <span class="sample-idx">No. 04</span>
+          <div class="sample-meta">
+            <span class="tag">Twitter / X</span>
+            <span class="tag">Meme Format</span>
+          </div>
+          <h3>Day 1: Crypto Meme Tweet</h3>
+          <p class="sample-desc">A one‑liner brand‑promotion tweet in meme format, built for a Jan 1 content calendar around Gen‑Z finance culture.</p>
+          <a class="sample-link" href="#sample-twitter">Read Sample →</a>
+        </div>
+        <div class="dot"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="section" id="featured">
+  <div class="wrap">
+    <div class="featured-card reveal">
+      <span class="featured-quote">“</span>
+      <div class="eyebrow">Featured Piece</div>
+      <h2>Why Brands Feel Like People</h2>
+      <div class="sample-meta">
+        <span class="tag">Blog / Article</span>
+        <span class="tag">Brand Storytelling</span>
+      </div>
+      <p>An exploration of why the ads and brands we remember aren't the loudest ones; they're the ones that made us feel something. On buying the story before we ever buy the product.</p>
+      <a href="#sample-blog" class="btn btn-outline">Read Full Piece</a>
+    </div>
+  </div>
+</section>
+
+<!-- FULL WRITING SAMPLE TEXT -->
+<section class="section section-alt" id="samples-full">
+  <div class="wrap">
+
+    <div id="sample-blog" class="reveal" style="margin-bottom:90px; scroll-margin-top:100px;">
+      <div class="eyebrow">Sample No. 01: Blog / Article</div>
+      <h3 style="font-size:28px; margin:14px 0 26px;">Why Brands Feel Like People</h3>
+      <div style="max-width:720px; font-size:15.5px; color:var(--charcoal-soft);">
+        <p style="margin-bottom:16px;">They come up with stories: stories that touch the audience's heart, stories that make us remember our past, our pain, or our happiest moments. Sometimes, their product reminds us of someone we know. Sometimes, an advertisement reminds us of a moment we thought we had forgotten.</p>
+        <p style="margin-bottom:16px;">That advertisement, that storytelling, is what makes a brand feel like a person.</p>
+        <p style="margin-bottom:16px;">We remember certain advertisements because they tell a story we can relate to. An advertisement might somehow tell the story of our childhood, our first love, our one‑sided love, our family, or even a moment we never knew we wanted to remember.</p>
+        <p style="margin-bottom:16px;">We take those stories to heart. We talk about them with our colleagues and friends. We share them. And every time we see that product, the advertisement crosses our mind, and the story crosses our heart.</p>
+        <p style="margin-bottom:16px;">Sometimes, we end up buying the product. But perhaps we weren't buying the product in the first place. We were buying the feeling attached to it.</p>
+        <p style="margin-bottom:16px;">These brands don't simply sell products. They create meaning around them through stories. We buy the story first, and then we end up buying the product.</p>
+        <p style="margin-bottom:16px;">Think about a perfume that reminds you of someone you once fell in love with. A particular fragrance can suddenly take you back to a person, a place, or a moment you thought you had moved on from.</p>
+        <p style="margin-bottom:16px;">Think about food that reminds you of home when you're far away from it. The product isn't just food anymore. It becomes comfort. It becomes familiarity. It becomes home.</p>
+        <p style="margin-bottom:16px;">That is the power of storytelling.</p>
+        <p style="margin-bottom:16px;">The best brands don't always try to convince their audience to buy something. Instead, they make their audience feel like they are being understood. They make people think: "That's my story." "I've felt that too." "This reminds me of someone."</p>
+        <p style="margin-bottom:16px;">And once a brand makes someone feel seen, it becomes more than a brand. It becomes familiar. It becomes memorable. It becomes something people can connect with.</p>
+        <p style="margin-bottom:16px;">Perhaps that's why the brands we remember most aren't always the ones with the loudest advertisements or the biggest discounts. They're the ones that made us feel something.</p>
+        <p>Because people may forget what a product promised them. But they rarely forget how a story made them feel.</p>
+      </div>
+    </div>
+
+    <div id="sample-linkedin" class="reveal" style="margin-bottom:90px; scroll-margin-top:100px;">
+      <div class="eyebrow">Sample No. 02: LinkedIn Rewrite</div>
+      <h3 style="font-size:28px; margin:14px 0 26px;">Product Launch: LinkedIn Rewrite</h3>
+      <div style="max-width:720px; font-size:15.5px; color:var(--charcoal-soft); background:var(--cream); border:1px solid var(--charcoal); padding:32px 36px;">
+        <p style="margin-bottom:14px;">Big launches don't happen overnight.</p>
+        <p style="margin-bottom:14px;">Behind this amazing product, there is a team that worked hard day and night, showed up every day, tested, failed, but didn't give up. With this hardworking support, our product has come out even better.</p>
+        <p style="margin-bottom:14px;">Today, we are proud to finally introduce our newest product to the world. This is just a step in a much bigger journey.</p>
+        <p style="margin-bottom:14px;">Excited to know what lies behind?</p>
+        <p>Check our website and explore the product. Let us hear your thoughts.</p>
+      </div>
+    </div>
+
+    <div id="sample-caption" class="reveal" style="margin-bottom:90px; scroll-margin-top:100px;">
+      <div class="eyebrow">Sample No. 03: Social Caption</div>
+      <h3 style="font-size:28px; margin:14px 0 8px;">Flavour Meets Fandom</h3>
+      <p style="font-size:13px; color:var(--charcoal-faint); margin-bottom:26px;">Brand: Kurkure &nbsp;|&nbsp; Show: Stranger Things</p>
+      <div style="max-width:720px; font-size:15.5px; color:var(--charcoal-soft); background:var(--cream); border:1px solid var(--charcoal); padding:32px 36px;">
+        <p style="margin-bottom:14px;">We got all the flavours, and Stranger Things has all the emotions, so why not make it a battle? All you need to do is pick a Kurkure flavour that matches the emotions of the scene.</p>
+        <p style="margin-bottom:14px; font-style:italic;">"You need something with more masala, exactly like the show."</p>
+        <p style="margin-bottom:14px;">Take a bite of Kurkure masala munch and feel the spice hit you. Those crunchy sounds? Maybe they can even help you from Vecna's spell.</p>
+        <p style="margin-bottom:14px;">That confusing un‑proposal scene, tension filled between confession or break‑up. That's exactly the twist you will find in our Kurkure solid masti masala twisteez.</p>
+        <p>This January first, bring all your favourite Kurkure flavours to the table to experience all the emotional scenes that Stranger Things Season 5 Volume 3 got, and don't forget the tissue, for the spice, or maybe Steve's...</p>
+      </div>
+    </div>
+
+    <div id="sample-twitter" class="reveal" style="scroll-margin-top:100px;">
+      <div class="eyebrow">Sample No. 04: Twitter / X</div>
+      <h3 style="font-size:28px; margin:14px 0 26px;">Day 1: Crypto Meme Tweet</h3>
+      <div style="max-width:520px; font-size:16px; color:var(--charcoal); background:var(--cream); border:1px solid var(--charcoal); padding:30px 34px;">
+        <p style="margin-bottom:16px;">You went to the bank to save money, but ended up wasting fuel. I sat on my sofa and let crypto do its work.</p>
+        <p style="color:var(--charcoal-faint); font-size:14px; margin-bottom:16px;">#CryptoLife &nbsp;#LazyInvestor &nbsp;#GenZFinance</p>
+        <div style="display:flex; gap:20px; font-size:12px; color:var(--charcoal-faint); text-transform:uppercase; letter-spacing:0.06em; border-top:1px solid var(--sand-line); padding-top:14px;">
+          <span>Day 1 · Jan 1</span>
+          <span>Purpose: Brand promotion</span>
+          <span>Format: Meme</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TECHNICAL SECTION -->
+<section class="section" id="technical">
+  <div class="wrap">
+    <div class="tech-grid">
+      <div class="reveal-left">
+        <div class="eyebrow">04. Technical Writing</div>
+        <h2 style="font-size:clamp(28px,3.6vw,40px); margin:14px 0 22px;">Understand it. Simplify it. Communicate it.</h2>
+        <p style="font-size:16px;">My engineering background lets me sit with technical material (models, data, systems) long enough to actually understand it, then translate that into language a non‑technical reader can follow.</p>
+        <div class="flow">
+          <div class="flow-step">Understand technical information</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">Simplify it</div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">Communicate it clearly</div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="project-card">
+          <h3>Twitter Spam Detection</h3>
+          <p>Built and trained an encoder–decoder NLP model to classify tweets as spam or non‑spam with high accuracy, including preprocessing, feature engineering, and model evaluation.</p>
+          <div class="stack-list">
+            <span>Python</span><span>NLP</span><span>TensorFlow</span><span>Pandas</span><span>NumPy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section section-alt" id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">05. Projects</div>
+      <h2>Where the technical side shows up.</h2>
+    </div>
+    <div class="project-card reveal">
+      <h3>Twitter Spam Detection (NLP, Encoder–Decoder Model)</h3>
+      <p>An encoder–decoder NLP model built to classify tweets as spam or non‑spam with high accuracy, covering the full pipeline from preprocessing to evaluation.</p>
+      <div class="project-meta-row">
+        <div>
+          <div class="lbl">Technologies</div>
+          <div class="val">Python · NLP · TensorFlow · Pandas · NumPy</div>
+        </div>
+        <div>
+          <div class="lbl">Key Contribution</div>
+          <div class="val">Preprocessing, feature engineering &amp; model evaluation</div>
+        </div>
+        <div>
+          <div class="lbl">Outcome</div>
+          <div class="val">High‑accuracy spam / non‑spam classification</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">06. Education</div>
+      <h2>Grounded in Computer Science Engineering.</h2>
+    </div>
+    <div class="reveal">
+      <div class="edu-item">
+        <div class="edu-year">2025</div>
+        <div class="edu-body">
+          <h3>B.E. Computer Science and Engineering</h3>
+          <div class="school">Shree Venkateshwara Hi‑Tech Engineering College</div>
+          <div class="score">CGPA: 8.56</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2021</div>
+        <div class="edu-body">
+          <h3>HSC</h3>
+          
+          <div class="score">88.5%</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2019</div>
+        <div class="edu-body">
+          <h3>SSLC</h3>
+          <div class="school">Saratha Matric Hr. Sec. School</div>
+          <div class="score">87.4%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS & ACHIEVEMENTS -->
+<section class="section section-alt" id="certifications">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">07. Certifications &amp; Achievements</div>
+      <h2>Recognition along the way.</h2>
+    </div>
+    <div class="cert-grid reveal">
+      <div>
+        <h3 style="font-size:18px; margin-bottom:10px;">Certifications</h3>
+        <ul class="cert-list">
+          <li>Young Professional Course, TCS iON</li>
+          <li>Improve Writing Skills, Great Learning</li>
+          <li>Shakespeare Talent Examination: Passed</li>
+          <li>Poem published in Writer's Pocket Anthology</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:18px; margin-bottom:10px;">Achievements</h3>
+        <ul class="cert-list">
+          <li>1st Prize, Poetry &amp; Speech Competitions</li>
+          <li>Published poet in Writer's Pocket Anthology</li>
+          <li>Recognized for expressive, impactful writing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow reveal">Get in touch</div>
+    <h2 class="reveal">Let's create something meaningful.</h2>
+    <p class="reveal" style="max-width:480px; margin:0 auto 10px; font-size:16px;">Open to content writing, technical writing, and storytelling opportunities.</p>
+    <div class="contact-links reveal">
+      <a href="mailto:anudharshinimohanraj40@gmail.com" class="btn btn-solid">Email Me</a>
+      <a href="https://medium.com/@dharshwrites" target="_blank" rel="noopener" class="btn btn-outline">Read on Medium</a>
+      <a href="tel:+919345816374" class="btn btn-outline">+91 93458 16374</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Anudharshini M | Content Writer &amp; Storyteller
+</footer>
+
+<script>
+// scroll reveal
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+},{ threshold:0.15, rootMargin:'0px 0px -60px 0px' });
+revealEls.forEach(el=>io.observe(el));
+
+// header border on scroll
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', ()=>{
+  if(window.scrollY > 20) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
+
+// mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinksEl = document.getElementById('navLinks');
+const navOverlay = document.getElementById('navOverlay');
+
+function closeNav(){
+  navToggle.classList.remove('active');
+  navLinksEl.classList.remove('open');
+  navOverlay.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+function openNav(){
+  navToggle.classList.add('active');
+  navLinksEl.classList.add('open');
+  navOverlay.classList.add('open');
+  navToggle.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+navToggle.addEventListener('click', ()=>{
+  if(navLinksEl.classList.contains('open')) closeNav();
+  else openNav();
+});
+navOverlay.addEventListener('click', closeNav);
+navLinksEl.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click', closeNav);
+});
+window.addEventListener('resize', ()=>{
+  if(window.innerWidth > 1120) closeNav();
+});
+
+// active section indicator (scrollspy)
+const navAnchors = document.querySelectorAll('.nav-links a[data-nav]');
+const spySections = Array.from(navAnchors)
+  .map(a=>document.getElementById(a.getAttribute('href').slice(1)))
+  .filter(Boolean);
+
+function setActiveNav(id){
+  navAnchors.forEach(a=>{
+    a.classList.toggle('active', a.dataset.nav === id);
+  });
+}
+
+const spyIO = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      setActiveNav(entry.target.id);
+    }
+  });
+}, { threshold:0, rootMargin:'-45% 0px -50% 0px' });
+
+spySections.forEach(sec=>spyIO.observe(sec));
+
+// filter
+const filterBtns = document.querySelectorAll('.filter-btn');
+const rows = document.querySelectorAll('.sample-row');
+filterBtns.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    filterBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    rows.forEach(row=>{
+      if(f === 'all' || row.dataset.category === f){
+        row.classList.remove('hidden');
+      } else {
+        row.classList.add('hidden');
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
